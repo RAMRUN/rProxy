@@ -4,7 +4,10 @@ try:
     import getpass
     import sys
     from colorama import Fore
-    import os 
+    import os
+
+except:
+    print('make shure you installed paramiko and colorama!')
 
 
 startText = f'''{Fore.CYAN}
@@ -23,8 +26,14 @@ help = 'rproxy [add, remove] [user] [host]\n\n'
 
 def connectToHost(connect, serverName, port_proxy, port_server, passwd, user, hostname):
 
+
+
     # nginx reverse proxy configuration
+    # Edit this part to add aditional configuration to Nginx
+    #
     nginxConfig = "server { server_name "+ serverName + "; location / { proxy_pass http://localhost:" + port_proxy + "/; proxy_set_header X-Real-IP \$remote_addr; proxy_set_header Host \$host; proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for; proxy_set_header X-Forwarded-Proto https; proxy_redirect off; } error_page 502 /50x.html; location = /50x.html {root /usr/share/nginx/html;}}"
+    #
+    ###########################################
 
     # connecting server to reverse proxy via ssh
     connect.connect(hostname ,port=22, username=user, password=passwd, look_for_keys=False, allow_agent=False) # connecting ssh
