@@ -5,9 +5,9 @@ this project is based on the blogpost from Jacob Errington on "Roll your own Ngr
 (https://jerrington.me/posts/2019-01-29-self-hosted-ngrok.html)
 
 Note: Its more of a proof of concept and also not finished. I'm happy if people are helping me to improve the script.
-
+<hr>
 <br>
-reqirements:
-  tmux
-  python3
-    colorama
+reqirements:<br>
+  tmux<br>
+  python3<br>
+    colorama<br>
